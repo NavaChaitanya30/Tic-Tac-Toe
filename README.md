@@ -16,8 +16,6 @@ Play directly in your browser — no installation needed!
 - ⚡ Fully client-side (no backend needed)  
 - 🧱 Hosted on GitHub Pages
 
----
 
-## 🧰 Project Structure
 
 
