@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tic-Tac-Toe — Hybrid MCTS + Minimax (Unbeatable)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="theme-toggle">
+    <input type="checkbox" id="themeSwitch" />
+    <label for="themeSwitch" class="switch"></label>
+  </div>
+
+  <div class="container">
+    <h1>Tic Tac Toe — Hybrid Bot</h1>
+    <p id="info">Your move — you are <strong>X</strong>.</p>
+
+    <div id="board" class="board"></div>
+
+    <div class="controls">
+      <button id="newHuman">New Game (You start)</button>
+      <button id="newBot">New Game (Bot starts)</button>
+      <button id="reset">Reset Scores</button>
+
+      <div class="slider">
+        <label>Simulations:
+          <input id="simCount" type="range" min="100" max="8000" step="100" value="1500" />
+        </label>
+        <span id="simValue">1500</span>
+      </div>
+
+      <div class="slider">
+        <label>Minimax threshold:
+          <input id="minimaxThresh" type="number" min="1" max="9" value="6" />
+        </label>
+      </div>
+      <div class="dropdown">
+        <label for="difficulty">Difficulty: </label>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+         </select>
+      </div>
+
+
+      <div class="stats">
+        <span>Wins: <b id="wins">0</b></span>
+        <span>Losses: <b id="losses">0</b></span>
+        <span>Draws: <b id="draws">0</b></span>
+      </div>
+    </div>
+
+    <footer>
+      <small>Hybrid bot uses MCTS + Minimax for perfect play.</small>
+    </footer>
+  </div>
+
+  <!-- Popup for results -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <h2 id="popup-message">Result</h2>
+      <div class="popup-buttons">
+        <button id="playAgain">Play Again</button>
+        <button id="closePopup">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,196 @@
+:root {
+  --bg: #f4f6fa;
+  --card: #fff;
+  --accent: #2b2f6b;
+  --accent-light: #3f46b5;
+  --text: #222;
+  --muted: #666;
+  --board-border: #333;
+}
+
+body.dark {
+  --bg: #181a20;
+  --card: #22252e;
+  --accent: #65b5ff;
+  --accent-light: #9bd8ff;
+  --text: #eee;
+  --muted: #999;
+  --board-border: #555;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 24px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.switch {
+  width: 50px;
+  height: 28px;
+  background: var(--muted);
+  display: inline-block;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.switch::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--card);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+#themeSwitch:checked + .switch {
+  background: var(--accent);
+}
+#themeSwitch:checked + .switch::after {
+  transform: translateX(22px);
+}
+
+.container {
+  width: 100%;
+  max-width: 540px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+h1 {
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+#info {
+  margin: 6px 0 14px;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(3, 110px);
+  gap: 8px;
+  justify-content: center;
+  margin: 8px auto 14px;
+}
+.cell {
+  background: var(--card);
+  border: 2px solid var(--board-border);
+  border-radius: 8px;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+.cell:hover {
+  background: var(--accent-light);
+  transform: translateY(-3px);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.slider {
+  margin-top: 8px;
+}
+.stats {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+.popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.popup-content {
+  background: var(--card);
+  color: var(--text);
+  padding: 24px 32px;
+  border-radius: 12px;
+  text-align: center;
+  transform: scale(0.8);
+  animation: popin 0.4s ease forwards;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.popup-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+@keyframes popin {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.dropdown {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--text);
+}
+.dropdown select {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.dropdown select:hover {
+  background: var(--accent-light);
+}
+
